@@ -36,3 +36,4 @@ It contains the same features as with the s3 bucket. But you dont have to set up
 ## Contributing 
 - Please refer to CONTRIBUTING.md
 - It would be amazing if you can help add support for other languages & their juristictions
+- Everything regarding improving performance & reduce bundle size withoud inducing too much complexity is welcomed. Ie port TypeScript code to Rust for example
