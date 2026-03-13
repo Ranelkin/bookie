@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="static/bookie.svg" alt="Bookie Logo" width="200">
+</p>
+
 # Bookie - A small buisness accounting app
 
 Bookie is a minimalistic app that helps you store and create invoices. Fully local and compliant with the german Law.
@@ -32,3 +36,4 @@ It contains the same features as with the s3 bucket. But you dont have to set up
 ## Contributing 
 - Please refer to CONTRIBUTING.md
 - It would be amazing if you can help add support for other languages & their juristictions
+- Everything regarding improving performance & reduce bundle size withoud inducing too much complexity is welcomed. Ie port TypeScript code to Rust for example
