@@ -1,0 +1,31 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bookieGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3ab84b"/>
+      <stop offset="100%" stop-color="#217a30"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="224" height="224" rx="48" fill="url(#bookieGradient)"/>
+  <path d="
+      M110 72
+      L138 72
+      C166 72 178 88 178 106
+      C178 122 166 134 150 138
+      C170 142 184 156 184 178
+      C184 202 166 216 138 216
+      L110 216
+      Z
+      M138 100
+      C152 100 158 106 158 116
+      C158 126 152 132 138 132
+      L126 132
+      L126 100
+      Z
+      M138 156
+      C156 156 162 164 162 176
+      C162 188 154 196 138 196
+      L126 196
+      L126 156
+      Z
+    " fill="white"/>
+</svg>

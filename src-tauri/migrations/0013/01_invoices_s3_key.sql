@@ -1,0 +1,1 @@
+ALTER TABLE invoices ADD COLUMN s3_key TEXT;
