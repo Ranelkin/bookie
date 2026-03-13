@@ -53,7 +53,7 @@ export async function createCompany(data: CreateCompany): Promise<number> {
       data.bank_name,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function updateCompany(

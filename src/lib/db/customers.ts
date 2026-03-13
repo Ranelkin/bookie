@@ -76,7 +76,7 @@ export async function createCustomer(data: CreateCustomer): Promise<number> {
       data.type,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function updateCustomer(

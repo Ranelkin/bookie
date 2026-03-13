@@ -52,7 +52,7 @@ export async function createTimeEntry(data: CreateTimeEntry): Promise<number> {
       data.billable,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function updateTimeEntry(
