@@ -1,7 +1,9 @@
 use std::{fs, path::PathBuf, time::Duration};
 
 use aws_credential_types::Credentials;
-use aws_sdk_s3::{config::Region, presigning::PresigningConfig, primitives::ByteStream, Client as S3Client};
+use aws_sdk_s3::{
+    config::Region, presigning::PresigningConfig, primitives::ByteStream, Client as S3Client,
+};
 use log::{error, info, warn};
 use serde::{Deserialize, Serialize};
 use tauri::{AppHandle, Manager};
@@ -294,8 +296,7 @@ fn restore_database(app: AppHandle, bytes: Vec<u8>) -> Result<(), String> {
 #[tauri::command]
 fn write_binary_file(path: String, data: Vec<u8>) -> Result<(), String> {
     info!("Writing file: {path}");
-    fs::write(&path, &data)
-        .map_err(|e| format!("Failed to write file: {e}"))
+    fs::write(&path, &data).map_err(|e| format!("Failed to write file: {e}"))
 }
 
 #[derive(Deserialize)]
@@ -338,9 +339,7 @@ impl S3Config {
     }
 }
 
-fn format_s3_error<E: std::fmt::Debug>(
-    err: &aws_sdk_s3::error::SdkError<E>,
-) -> String {
+fn format_s3_error<E: std::fmt::Debug>(err: &aws_sdk_s3::error::SdkError<E>) -> String {
     match err {
         aws_sdk_s3::error::SdkError::ServiceError(ctx) => {
             let status = ctx.raw().status().as_u16();
@@ -515,25 +514,35 @@ fn store_s3_credentials(access_key_id: String, secret_access_key: String) -> Res
         return Err("Access Key ID and Secret Access Key must not be empty".into());
     }
 
-    info!("Storing S3 credentials in keyring (key_id_len={}, secret_len={})",
-        access_key_id.len(), secret_access_key.len());
+    info!(
+        "Storing S3 credentials in keyring (key_id_len={}, secret_len={})",
+        access_key_id.len(),
+        secret_access_key.len()
+    );
 
     let entry = keyring::Entry::new(KEYRING_SERVICE, KEYRING_USER)
         .map_err(|e| format!("Keyring error: {e}"))?;
 
-    let creds = S3Credentials { access_key_id, secret_access_key };
-    let json = serde_json::to_string(&creds)
-        .map_err(|e| format!("Serialization failed: {e}"))?;
+    let creds = S3Credentials {
+        access_key_id,
+        secret_access_key,
+    };
+    let json = serde_json::to_string(&creds).map_err(|e| format!("Serialization failed: {e}"))?;
 
-    entry.set_password(&json)
+    entry
+        .set_password(&json)
         .map_err(|e| format!("Keyring storage failed: {e}"))?;
 
     // Verify the credentials were actually persisted
-    let readback = entry.get_password()
+    let readback = entry
+        .get_password()
         .map_err(|e| format!("Keyring verification read failed: {e}"))?;
     if readback != json {
-        return Err("Keyring verification failed: stored credentials do not match. \
-            The OS keyring service may not be working correctly.".into());
+        return Err(
+            "Keyring verification failed: stored credentials do not match. \
+            The OS keyring service may not be working correctly."
+                .into(),
+        );
     }
 
     info!("S3 credentials stored and verified in keyring successfully");
@@ -548,13 +557,16 @@ fn get_s3_credentials() -> Result<S3Credentials, String> {
 
     match entry.get_password() {
         Ok(json) => {
-            let creds: S3Credentials = serde_json::from_str(&json)
-                .map_err(|e| format!("Deserialization failed: {e}"))?;
+            let creds: S3Credentials =
+                serde_json::from_str(&json).map_err(|e| format!("Deserialization failed: {e}"))?;
             if creds.access_key_id.is_empty() || creds.secret_access_key.is_empty() {
                 warn!("Keyring entry exists but credentials are empty");
             } else {
-                info!("S3 credentials read successfully (key_id_len={}, secret_len={})",
-                    creds.access_key_id.len(), creds.secret_access_key.len());
+                info!(
+                    "S3 credentials read successfully (key_id_len={}, secret_len={})",
+                    creds.access_key_id.len(),
+                    creds.secret_access_key.len()
+                );
             }
             Ok(creds)
         }
