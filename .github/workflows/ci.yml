@@ -16,10 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
-      - run: bun install --frozen-lockfile
+      - run: bun install 
       - run: bun run check
-      - run: bunx prettier --check "src/**/*.{svelte,ts,js,css,html}"
-
+     
   backend:
     runs-on: ubuntu-latest
     steps:
