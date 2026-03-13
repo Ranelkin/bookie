@@ -50,7 +50,7 @@ export async function createProject(data: CreateProject): Promise<number> {
       data.ends_on,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function updateProject(

@@ -12,7 +12,9 @@
 		bucket_name: '',
 		access_key_id: '',
 		secret_access_key: '',
-		path_prefix: 'rechnungen'
+		path_prefix: 'rechnungen',
+		auto_backup_enabled: 0,
+		last_auto_backup_at: null as string | null
 	});
 	let loading = $state(true);
 	let saving = $state(false);

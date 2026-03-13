@@ -59,12 +59,12 @@ export function tp(key: string, params: Record<string, string | number>): string
  * Useful when you need multiple values from the same section.
  */
 export function translations(): Translations {
-	return locales[currentLocale];
+	return locales[currentLocale] as Translations;
 }
 
 /**
  * Get translations for a specific locale (e.g. for PDF generation in a different language).
  */
 export function translationsFor(locale: Locale): Translations {
-	return locales[locale];
+	return locales[locale] as Translations;
 }

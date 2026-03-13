@@ -38,7 +38,9 @@
 			notes: data.notes || null,
 			s3_key: null,
 			language: data.language || 'de',
-			legal_country_code: data.legalCountry || 'DE'
+			legal_country_code: data.legalCountry || 'DE',
+			delivery_date: data.issueDate,
+			due_surcharge: data.dueSurcharge
 		});
 
 		for (let i = 0; i < data.items.length; i++) {

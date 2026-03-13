@@ -44,7 +44,7 @@ export async function createInvoiceItem(
       data.line_total_net,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function updateInvoiceItem(

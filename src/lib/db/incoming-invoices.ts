@@ -78,7 +78,7 @@ export async function createIncomingInvoice(
       data.notes,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function updateIncomingInvoice(

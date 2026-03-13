@@ -25,7 +25,7 @@ export async function createPayment(data: CreatePayment): Promise<number> {
       data.note,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function deletePayment(id: number): Promise<void> {

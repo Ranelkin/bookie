@@ -91,7 +91,7 @@ export async function createInvoice(data: CreateInvoice): Promise<number> {
       data.notes,
     ],
   );
-  return result.lastInsertId;
+  return result.lastInsertId!;
 }
 
 export async function updateInvoice(
