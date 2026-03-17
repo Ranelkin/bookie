@@ -26,7 +26,8 @@
 		vatin: '',
 		website: '',
 		default_locale: 'de',
-		default_legal_country: 'DE'
+		default_legal_country: 'DE',
+		owner_birthday_date: ''
 	});
 	let loading = $state(true);
 	let saving = $state(false);
@@ -76,6 +77,7 @@
 			<TextInput bind:value={form.bank_account_holder} label={t('settings.accountHolder')} />
 			<TextInput bind:value={form.vatin} label={t('settings.vatinLabel')} />
 			<TextInput bind:value={form.website} label={t('settings.websiteLabel')} />
+			<TextInput bind:value={form.owner_birthday_date} label={t('settings.ownerBirthday')} type="date" />
 			<Select bind:value={form.default_locale} label={t('settings.defaultLocale')} options={localeOptions} />
 			<Select bind:value={form.default_legal_country} label={t('settings.defaultLegalCountry')} options={legalCountryOptions} />
 		</div>

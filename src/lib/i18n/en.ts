@@ -40,6 +40,9 @@ export default {
 		unexpectedError: 'An unexpected error occurred.',
 		saveChanges: 'Save changes'
 	},
+	birthday: {
+		greeting: 'Happy Birthday!'
+	},
 	overview: {
 		title: 'Overview',
 		financialOverview: 'Financial overview for {year}',
@@ -274,6 +277,7 @@ export default {
 		websiteLabel: 'Website',
 		orgSaved: 'Organisation settings saved.',
 		orgSaveError: 'Failed to save settings.',
+		ownerBirthday: 'Date of birth',
 		defaultLocale: 'Default language',
 		defaultLegalCountry: 'Default legal jurisdiction',
 		invoiceTitle: 'Invoice',

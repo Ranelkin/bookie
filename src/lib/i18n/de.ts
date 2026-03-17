@@ -40,6 +40,9 @@ export default {
 		unexpectedError: 'Ein unerwarteter Fehler ist aufgetreten.',
 		saveChanges: 'Änderungen speichern'
 	},
+	birthday: {
+		greeting: 'Alles Gute zum Geburtstag!'
+	},
 	overview: {
 		title: 'Übersicht',
 		financialOverview: 'Finanzübersicht für {year}',
@@ -274,6 +277,7 @@ export default {
 		websiteLabel: 'Website',
 		orgSaved: 'Organisationseinstellungen wurden gespeichert.',
 		orgSaveError: 'Fehler beim Speichern der Einstellungen.',
+		ownerBirthday: 'Geburtsdatum',
 		defaultLocale: 'Standard-Sprache',
 		defaultLegalCountry: 'Standard-Rechtsgebiet',
 		invoiceTitle: 'Rechnung',

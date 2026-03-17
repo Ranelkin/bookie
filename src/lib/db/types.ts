@@ -158,6 +158,7 @@ export interface OrganizationSettings {
   website: string;
   default_locale: string;
   default_legal_country: string;
+  owner_birthday_date: string;
   created_at: string;
   updated_at: string;
 }

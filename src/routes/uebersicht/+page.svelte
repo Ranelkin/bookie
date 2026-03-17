@@ -7,6 +7,7 @@
 	import { generateEuerCsv } from '$lib/csv/euer-csv';
 	import { saveCsvFile } from '$lib/csv/csv-writer';
 	import { t, tp, translations } from '$lib/i18n';
+	import BirthdayDinosaur from '../../common/BirthdayDinosaur.svelte';
 
 	let loading = $state(true);
 	let year = $state(new Date().getFullYear());
@@ -154,6 +155,8 @@
 </script>
 
 <section class="space-y-6">
+	<BirthdayDinosaur />
+
 	<!-- Header -->
 	<header class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 		<div>
